@@ -1,0 +1,18 @@
+body{
+    background-image: url("/static/images/todo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.data{
+    color:rgb(68, 161, 161);
+    margin: 300px 700px;
+    font-size: 25px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.data p a{
+    color:rgb(68, 161, 161);
+}
+.data p a:hover{
+    color: #726e6e;
+}

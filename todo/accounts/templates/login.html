@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-form label {
+            font-weight: bold;
+        }
+
+        .login-form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .login-form input[type="submit"] {
+            background-color: rgb(68, 161, 161);
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-form input[type="submit"]:hover {
+            background-color: rgb(68, 161, 161);
+        }
+
+        .login-form .signup-link,
+        .login-form .forgot-password-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .login-form .signup-link a,
+        .login-form .forgot-password-link a {
+            color: #1E90FF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form class="login-form" method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            
+            <input type="submit" value="Login">
+            
+            <div class="signup-link">
+                <a href="{% url 'signup' %}">Sign up</a>
+            </div>
+            <div class="forgot-password-link">
+                <a href="#">Forgot password?</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

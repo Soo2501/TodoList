@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
-
 {% block css %}
+<link rel="stylesheet" href="/static/css/home.css">
 {% endblock %}
 
 {% block content %}
+    <div class="data">
+        <h2>Welcome to Todo List</h2>
+        <p>Create ur list and success your life journey</p>
+        <p><a href="{% url 'create' %}" style="font-size: 20px;">Make your list</a></p>
+    </div>
 {% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/static/base.css">
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'home' %}">TODO</a></li>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'my-task' %}">My Tasks</a></li>
+                <li><a href="{% url 'create' %}">Create Task</a></li>
+            </ul>
+                <button><a href="#">Logout</a></button>
+            {% else%}
+                <li><a href="{% url 'home' %}">TODO</a></li>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                </ul>
+                <button><a href="#">Login</a></button>
+                <button><a href="#">Join Now</a></button>
+            {% endif %}
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

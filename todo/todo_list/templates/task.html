@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block csss %}
+{% endblock %}
+
+{% block content %}
+    <h1>My Todo List</h1>
+    <hr>
+    {% if task %}
+        {% for i in task %}
+        {% if i.completed == False %}
+            <ul>
+                <li>{{i.title}} <a href="{% url 'delete-task' i.id %}" style="color: red;">Delete </a><a href="{% url 'edit-task' i.id %}"> Edit</a></li>
+                <p>Created at: {{i.created}}</p>
+            </ul>
+        {% endif %}
+        {% endfor %}
+    {% else %}
+        <p>Sorry you have no task in pending</p>
+    {% endif %}
+    <br>
+    <hr>
+    <h1>Completed</h1>
+    {% for i in task %}
+    {% if i.completed == True %}
+        <ul>
+            <li> <del>{{i.title}} </del><a href="{% url 'delete-task' i.id %}" style="color: red;">Delete </a>
+                <p>created at: {{i.created}} | Completed at: {{i.updated}}</p>
+        </ul>
+    {% endif %}
+    {% endfor %}
+{% endblock %}
